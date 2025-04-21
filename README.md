@@ -9,4 +9,7 @@ Créditos:
 - Fields by Trixie (trixelized)
 - Soundtrack by 8-Bits by CODE: Shadow (youtube)
 
+![image](https://github.com/user-attachments/assets/8bc3e089-b2a0-4500-b3ea-84bae66fff71)
+
+
 ![image](https://github.com/user-attachments/assets/6fc23df3-8a39-4088-8785-b74f565451df)
