@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c2b9caa14fe62ec448de679042eae2b7
+guid: a28d7f89c77d7e446851f758e360897b
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - 8_bit_1_6
+  - 8BIT WONDER
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

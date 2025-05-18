@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -8,7 +9,7 @@ public class scriptEnemyAttack : MonoBehaviour
     public float attackDuration = 0.5f;
     public float attackRange = 1.5f;
     public Transform player;
-    
+
     private bool isAttacking = false;
     private Animator anim;
 
@@ -19,6 +20,7 @@ public class scriptEnemyAttack : MonoBehaviour
 
     void Update()
     {
+        
         if (!isAttacking && Vector2.Distance(transform.position, player.position) <= attackRange)
         {
             StartCoroutine(PerformAttack());
@@ -27,11 +29,12 @@ public class scriptEnemyAttack : MonoBehaviour
 
     private IEnumerator PerformAttack()
     {
+        Console.WriteLine("Inimigo Performa Ataque + isAttacking", isAttacking);
         isAttacking = true;
 
         if (anim != null)
             anim.SetTrigger("enemyAttack");
-
+        Console.WriteLine("Inimigo Performa Ataque + anim", anim);
         attackHitbox.enabled = true;
 
         yield return new WaitForSeconds(attackDuration);
@@ -39,4 +42,5 @@ public class scriptEnemyAttack : MonoBehaviour
         attackHitbox.enabled = false;
         isAttacking = false;
     }
+    
 }

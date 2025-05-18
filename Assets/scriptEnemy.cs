@@ -4,7 +4,7 @@ public class EnemyMovement : MonoBehaviour
 {
     public float speed = 2f;
     private Rigidbody2D rb;
-    private Vector2 direction = Vector2.left;
+    private Vector2 direction = Vector2.right;
     Animator animator;
 
 

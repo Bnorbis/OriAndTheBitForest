@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class scriptEnemyHealth : MonoBehaviour
 {
@@ -16,14 +17,21 @@ public class scriptEnemyHealth : MonoBehaviour
     {
         health -= damage;
 
-        if (anim != null)
-        {
-            anim.SetTrigger("enemyHit"); 
-        }
+        // Inicia a animação de dano
+        StartCoroutine(PlayHitAnimation());
 
         if (health <= 0)
         {
-            Destroy(gameObject); 
+            Destroy(gameObject);
         }
+    }
+
+    private IEnumerator PlayHitAnimation()
+    {
+        anim.SetBool("enemyHit", true);
+
+        yield return new WaitForSeconds(0.5f); 
+
+        anim.SetBool("enemyHit", false);
     }
 }

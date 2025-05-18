@@ -12,10 +12,6 @@ public class scriptOriAttackHit : MonoBehaviour
             if (enemyHealth != null)
             {
                 enemyHealth.TakeDamage(damage);
-                
-                var anim = col.GetComponent<Animator>();
-                if (anim != null)
-                    anim.SetTrigger("enemyHit");
             }
         }
     }
