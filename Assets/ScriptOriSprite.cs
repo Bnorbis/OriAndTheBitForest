@@ -45,11 +45,11 @@ public class ScriptOriSprite : MonoBehaviour
 
         if (Input.GetKey(KeyCode.DownArrow))
         {
-            anim.SetBool("couching", true);
+            anim.SetBool("crouching", true);
         }
         else
         {
-            anim.SetBool("couching", false);    
+            anim.SetBool("crouching", false);    
         }
 
         if (Input.GetKey(KeyCode.Z))
@@ -72,18 +72,18 @@ public class ScriptOriSprite : MonoBehaviour
         //Detecting ground 
         RaycastHit2D hit;
 
-        hit = Physics2D.Raycast(foot.transform.position, Vector2.down, 0.2f, mask);
+        hit = Physics2D.Raycast(foot.transform.position, Vector2.down, 0.4f, mask);
 
         if (hit.collider == null)
         {
             ground = false;
+            transform.parent = null;
         }
         else
         {
             ground = true;
+            transform.parent = hit.collider.transform;
         }
 
     }
 }
-
-

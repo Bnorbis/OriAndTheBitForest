@@ -13,8 +13,12 @@ public class scriptCamera : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+   void Update()
     {
-        transform.position = new Vector3(ori.transform.position.x, ori.transform.position.y+offsetY, -10);
+        if (ori != null)
+        {
+            transform.position = new Vector3(ori.transform.position.x, ori.transform.position.y + offsetY, -10);
+        }
     }
+
 }
