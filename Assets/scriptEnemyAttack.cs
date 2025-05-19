@@ -6,11 +6,11 @@ public class scriptEnemyAttack : MonoBehaviour
 {
     public Collider2D attackHitbox;
     public int damage = 1;
-    public float attackDuration = 0.5f;
-    public float attackRange = 1.5f;
     public Transform player;
+    public float attackDuration = 2f;
+    public float attackRange = 1f;
 
-    private bool isAttacking = false;
+    public Boolean isAttacking = false;
     private Animator anim;
 
     void Start()
@@ -20,7 +20,8 @@ public class scriptEnemyAttack : MonoBehaviour
 
     void Update()
     {
-        
+        Debug.Log("Inimigo Performa Ataque + isAttacking: " + isAttacking);
+
         if (!isAttacking && Vector2.Distance(transform.position, player.position) <= attackRange)
         {
             StartCoroutine(PerformAttack());
@@ -29,18 +30,19 @@ public class scriptEnemyAttack : MonoBehaviour
 
     private IEnumerator PerformAttack()
     {
-        Console.WriteLine("Inimigo Performa Ataque + isAttacking", isAttacking);
         isAttacking = true;
 
-        if (anim != null)
-            anim.SetTrigger("enemyAttack");
-        Console.WriteLine("Inimigo Performa Ataque + anim", anim);
         attackHitbox.enabled = true;
 
-        yield return new WaitForSeconds(attackDuration);
+        anim.SetBool("enemyAttack", true);
+
+        yield return new WaitForSeconds(2f); 
+
+        anim.SetBool("enemyAttack", false);
 
         attackHitbox.enabled = false;
+
         isAttacking = false;
+
     }
-    
 }

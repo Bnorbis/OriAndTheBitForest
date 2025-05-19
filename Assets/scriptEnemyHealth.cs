@@ -17,7 +17,6 @@ public class scriptEnemyHealth : MonoBehaviour
     {
         health -= damage;
 
-        // Inicia a animação de dano
         StartCoroutine(PlayHitAnimation());
 
         if (health <= 0)
@@ -28,10 +27,11 @@ public class scriptEnemyHealth : MonoBehaviour
 
     private IEnumerator PlayHitAnimation()
     {
-        anim.SetBool("enemyHit", true);
-
-        yield return new WaitForSeconds(0.5f); 
-
-        anim.SetBool("enemyHit", false);
+        if (anim != null)
+        {
+            anim.SetBool("enemyHit", true);
+            yield return new WaitForSeconds(0.5f);
+            anim.SetBool("enemyHit", false);
+        }
     }
 }

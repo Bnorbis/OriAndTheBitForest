@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class scriptOriHealth : MonoBehaviour
 {
-    // Start is called before the first frame update
     public int maxHealth = 10;
     public int health;
 
     Animator animator;
+
     void Start()
     {
         health = maxHealth;
@@ -17,7 +17,16 @@ public class scriptOriHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        StartCoroutine(TakeDamageCoroutine(damage));
+    }
+
+    private IEnumerator TakeDamageCoroutine(int damage)
+    {
         health -= damage;
+        animator.SetBool("hurting", true);
+        yield return new WaitForSeconds(0.3f);
+        animator.SetBool("hurting", false);
+
         if (health <= 0)
         {
             StartCoroutine(OriDeathAndDestroy());
@@ -27,10 +36,7 @@ public class scriptOriHealth : MonoBehaviour
     private IEnumerator OriDeathAndDestroy()
     {
         animator.SetTrigger("dying");
-
         yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
-
     }
-    
 }
