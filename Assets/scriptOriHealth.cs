@@ -9,6 +9,10 @@ public class scriptOriHealth : MonoBehaviour
 
     Animator animator;
 
+    public scriptGameManager scriptGameManager;
+
+    private bool isDead;
+
     void Start()
     {
         health = maxHealth;
@@ -27,8 +31,10 @@ public class scriptOriHealth : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         animator.SetBool("hurting", false);
 
-        if (health <= 0)
+        if (health <= 0 && !isDead)
         {
+            isDead = true;
+            scriptGameManager.gameOver();
             StartCoroutine(OriDeathAndDestroy());
         }
     }
