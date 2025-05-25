@@ -16,13 +16,22 @@ public class scriptEnemyHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
-
         StartCoroutine(PlayHitAnimation());
 
         if (health <= 0)
         {
-            Destroy(gameObject);
+            StartCoroutine(Die());
         }
+    }
+
+    private IEnumerator Die()
+    {
+        if (anim != null)
+        {
+            anim.SetTrigger("enemyDeath");
+            yield return new WaitForSeconds(0.5f);
+        }
+        Destroy(gameObject);
     }
 
     private IEnumerator PlayHitAnimation()

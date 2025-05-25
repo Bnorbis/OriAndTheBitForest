@@ -20,13 +20,13 @@ public class scriptEnemyAttack : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("Inimigo Performa Ataque + isAttacking: " + isAttacking);
 
-        if (!isAttacking && Vector2.Distance(transform.position, player.position) <= attackRange)
+        if (player != null && !isAttacking && Vector2.Distance(transform.position, player.position) <= attackRange)
         {
             StartCoroutine(PerformAttack());
         }
     }
+
 
     private IEnumerator PerformAttack()
     {

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class scriptOriHealth : MonoBehaviour
 {
-    public int maxHealth = 10;
+    public int maxHealth = 25;
     public int health;
 
     Animator animator;
