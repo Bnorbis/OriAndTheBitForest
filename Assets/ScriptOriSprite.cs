@@ -13,6 +13,8 @@ public class ScriptOriSprite : MonoBehaviour
     public GameObject foot;
     public LayerMask mask;
     private bool oriRight = true;
+    public GameObject canvasWin;
+
 
     void Start()
     {
@@ -26,8 +28,8 @@ public class ScriptOriSprite : MonoBehaviour
     {
         float x = Input.GetAxis("Horizontal");
         rbd.velocity = new Vector2(x * vel, rbd.velocity.y);
-        
-         if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)) && ground)
+
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)) && ground)
         {
             rbd.AddForce(new Vector2(0, jump));
         }
@@ -49,7 +51,7 @@ public class ScriptOriSprite : MonoBehaviour
         }
         else
         {
-            anim.SetBool("crouching", false);    
+            anim.SetBool("crouching", false);
         }
 
         if (Input.GetKey(KeyCode.Z))
@@ -59,7 +61,7 @@ public class ScriptOriSprite : MonoBehaviour
         else
         {
             anim.SetBool("attacking", false);
-        }    
+        }
 
 
         //Detecting direction
@@ -85,5 +87,15 @@ public class ScriptOriSprite : MonoBehaviour
             transform.parent = hit.collider.transform;
         }
 
-    }
+        }   
+    
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            Debug.Log("Colidiu com: " + collision.gameObject.name);
+            if (collision.gameObject.CompareTag("Win"))
+        {
+            canvasWin.SetActive(true);
+        }
+        }
+
 }
