@@ -1,37 +1,31 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class scriptOriDamage : MonoBehaviour
 {
     public int damage;
     public scriptOriHealth scriptOriHealth;
-    Animator animator;
-
-
+    private Animator animator;
 
     void Start()
     {
+        animator = GetComponent<Animator>();
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.CompareTag("Enemy"))
         {
-            scriptOriHealth oriHealth = collision.gameObject.GetComponent<scriptOriHealth>();
-            if (oriHealth != null)
+            if (scriptOriHealth != null)
             {
-                oriHealth.TakeDamage(damage);
+                scriptOriHealth.TakeDamage(damage);
                 animator.SetBool("hurting", true);
-                Console.WriteLine(animator.GetBool("hurting"));
-
+                Debug.Log("Ori tomou dano de inimigo!");
             }
         }
     }
 
-
     void Update()
     {
+      
     }
 }

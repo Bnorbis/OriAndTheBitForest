@@ -1,5 +1,11 @@
 # Ori And The Bit Forest
 
+Como Jogar: 
+- Use as setas para se mover (Seta para cima: salto, seta para baixo: agaixar, seta para direita e esquerda: mover-se para direita e esquerda)
+- Use a tecla Z para atacar 
+- O jogo acaba ao encostar na última árvore
+
+
 Para o primeiro projeto da disciplina de Desenvolvimento de Jogos, optei por homenagear Ori and the Blind Forest, uma obra que sempre me cativou pela sua estética e, especialmente, pela maravilhosa trilha sonora composta por Gareth Coker. 
 A realização deste projeto não seria possível sem a colaboração  de talentosos artistas, cujos assets encontrei e que se encaixaram perfeitamente nas necessidades do jogo. 
 No entanto, os vilões e imagens relacionadas a opening foram feitos manualmente, pois não localizei recursos prontos que atendessem às especificações desejadas.

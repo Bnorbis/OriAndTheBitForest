@@ -6,12 +6,12 @@ public class scriptOriAttackHit : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("Atingiu");
         if (col.CompareTag("Enemy"))
         {
             var enemyHealth = col.GetComponent<scriptEnemyHealth>();
             if (enemyHealth != null)
             {
+                Debug.Log("Inimigo atingido! Aplicando dano: " + damage);
                 enemyHealth.TakeDamage(damage);
             }
         }
