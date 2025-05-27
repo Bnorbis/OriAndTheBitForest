@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 
 public class scriptOriAttack : MonoBehaviour
@@ -13,6 +14,7 @@ public class scriptOriAttack : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Z) && !isAttacking)
         {
+        Debug.Log("Atacou o inimigo!");
             StartCoroutine(PerformAttack());
         }
     }

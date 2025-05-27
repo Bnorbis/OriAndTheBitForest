@@ -12,6 +12,8 @@ public class scriptOriHealth : MonoBehaviour
     public scriptGameManager scriptGameManager;
 
     private bool isDead;
+    public scriptHealthManager healthManager;
+
 
     void Start()
     {
@@ -30,6 +32,7 @@ public class scriptOriHealth : MonoBehaviour
         animator.SetBool("hurting", true);
         yield return new WaitForSeconds(0.3f);
         animator.SetBool("hurting", false);
+        healthManager.UpdateHealthBar(health); 
 
         if (health <= 0 && !isDead)
         {
